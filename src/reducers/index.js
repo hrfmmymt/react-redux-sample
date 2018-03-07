@@ -1,20 +1,10 @@
-/*
-  Reducers
-*/
-import { SEND } from '../constants/actionTypes'
-
-const initialState = {
-  type: 'SEND'
-}
-
-export default function formReducer(state = initialState, action) {
-  switch (action.type) {
-    case SEND:
-      return {
-        value: action.value
-      }
- 
-    default:
-      return state
-  }
-}
+import { combineReducers } from 'redux'
+import todos from './todos'
+import visibilityFilter from './visibilityFilter'
+ 
+const todoApp = combineReducers({
+  todos,
+  visibilityFilter
+})
+ 
+export default todoApp
